@@ -7,5 +7,8 @@
   "item.snakemod.snake_egg": "Snake Egg",
   "block.snakemod.snake_scale_block": "Snake Scale Block",
   "block.snakemod.snake_scale_carpet": "Snake Scale Carpet",
-  "block.snakemod.snake_scale_stairs": "Snake Scale Stairs"
+  "block.snakemod.snake_scale_stairs": "Snake Scale Stairs",
+  "item.snakemod.fang_claws": "Fang Claws",
+  "effect.snakemod.snake_venom": "Snake Venom",
+  "effect.snakemod.reptilian_blessing": "Reptile Blessing"
 }

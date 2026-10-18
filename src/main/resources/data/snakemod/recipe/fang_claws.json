@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "C": {
+      "item": "snakemod:snake_fang"
+    },
+    "H": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "C C",
+    "HHH"
+  ],
+  "result": {
+    "count": 1,
+    "id": "snakemod:fang_claws"
+  }
+}

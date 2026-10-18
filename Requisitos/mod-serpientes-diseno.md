@@ -32,9 +32,13 @@ Mod de Minecraft Java centrado en serpientes. Añade una estructura de arena con
 - Las trampas de colmillos solo se pueden colocar sobre bloques de escamas.
 
 ### Armas
-- **Arma de colmillos:** envenena al golpear.
+- **Arma de colmillos:** envenena al golpear. Es un puño americano con dos colmillos (modelo 3D que hará el autor), solo arma de daño (sin funciones de espada). Receta (decidido): 3 lingotes de hierro en la fila de abajo y 2 colmillos justo encima, en los lados (centro vacío). Daño, velocidad de ataque, durabilidad y duración del veneno: **[A AJUSTAR]** (constantes en `FangClawsItem` y `ModTiers`).
 - **Lanza arrojadiza de colmillos:** funciona como el tridente (se lanza y se recoge). Envenena.
 - **Trampa de colmillos:** al pisarla hace daño y envenena. No se rompe. Solo sobre bloques de escamas.
+
+### Efectos propios (decidido)
+- **Veneno de serpiente (`snake_venom`):** efecto propio de daño con el tiempo que **afecta a todo ser vivo, incluidos los muertos vivientes** (el Veneno de vanilla no les afecta). Lo usan el arma de colmillos y, más adelante, la lanza, el lancero, el soldado y las trampas. Daño, intervalo y si puede matar: **[A AJUSTAR]** (constantes en `SnakeVenomEffect`). Si el antídoto lo cura: **[A DEFINIR]**.
+- **Bendición reptiliana (`reptilian_blessing`):** efecto propio que da velocidad y fuerza (valores en `ReptilianBlessingEffect`, **[A AJUSTAR]**).
 
 ### Pociones
 - **Poción de bendición reptiliana:** se hace con ojos de serpiente. Da velocidad y fuerza **[A AJUSTAR: duración]**.

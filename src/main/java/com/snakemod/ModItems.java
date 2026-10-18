@@ -17,6 +17,10 @@ public class ModItems {
     // Provisional egg: the pet hatching logic comes in a later phase
     public static final DeferredItem<Item> SNAKE_EGG = ITEMS.registerSimpleItem("snake_egg");
 
+    // Arma de colmillos: puño americano que envenena al golpear
+    public static final DeferredItem<FangClawsItem> FANG_CLAWS = ITEMS.registerItem("fang_claws",
+            properties -> new FangClawsItem(ModTiers.FANG, properties));
+
     // Entrega la lista a Minecraft (se llama desde el constructor del mod)
     public static void register(IEventBus modEventBus) {
         ITEMS.register(modEventBus);

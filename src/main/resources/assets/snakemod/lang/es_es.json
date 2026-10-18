@@ -7,5 +7,8 @@
   "item.snakemod.snake_egg": "Huevo de serpiente",
   "block.snakemod.snake_scale_block": "Bloque de escamas de serpiente",
   "block.snakemod.snake_scale_carpet": "Alfombra de escamas de serpiente",
-  "block.snakemod.snake_scale_stairs": "Escaleras de escamas de serpiente"
+  "block.snakemod.snake_scale_stairs": "Escaleras de escamas de serpiente",
+  "item.snakemod.fang_claws": "Garras de colmillos",
+  "effect.snakemod.snake_venom": "Veneno de serpiente",
+  "effect.snakemod.reptilian_blessing": "Bendición reptil"
 }
