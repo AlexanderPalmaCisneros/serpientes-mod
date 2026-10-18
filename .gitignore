@@ -39,4 +39,4 @@ run/
 repo/
 !**/src/**/repo/
 
-/Requisitos
+CLAUDE.md
