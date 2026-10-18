@@ -11,6 +11,11 @@ public class ModItems {
 
     // Un pedido: ítem simple con id "snakemod:snake_scale"
     public static final DeferredItem<Item> SNAKE_SCALE = ITEMS.registerSimpleItem("snake_scale");
+    public static final DeferredItem<Item> SNAKE_FANG = ITEMS.registerSimpleItem("snake_fang");
+    public static final DeferredItem<Item> SNAKE_EYE = ITEMS.registerSimpleItem("snake_eye");
+    public static final DeferredItem<Item> GOLDEN_SNAKE_EYE = ITEMS.registerSimpleItem("golden_snake_eye");
+    // Provisional egg: the pet hatching logic comes in a later phase
+    public static final DeferredItem<Item> SNAKE_EGG = ITEMS.registerSimpleItem("snake_egg");
 
     // Entrega la lista a Minecraft (se llama desde el constructor del mod)
     public static void register(IEventBus modEventBus) {

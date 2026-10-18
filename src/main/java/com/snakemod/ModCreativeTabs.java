@@ -18,6 +18,10 @@ public class ModCreativeTabs {
                     .icon(() -> ModItems.SNAKE_SCALE.get().getDefaultInstance()) // dibujo de la pestaña
                     .displayItems((parameters, output) -> {
                         output.accept(ModItems.SNAKE_SCALE.get()); // qué ítems contiene
+                        output.accept(ModItems.SNAKE_FANG.get());
+                        output.accept(ModItems.SNAKE_EYE.get());
+                        output.accept(ModItems.GOLDEN_SNAKE_EYE.get());
+                        output.accept(ModItems.SNAKE_EGG.get());
                     })
                     .build());
 

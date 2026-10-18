@@ -1,4 +1,8 @@
 {
   "itemGroup.snakemod": "Snake Mod",
-  "item.snakemod.snake_scale": "Escama de serpiente"
+  "item.snakemod.snake_scale": "Escama de serpiente",
+  "item.snakemod.snake_fang": "Colmillo de serpiente",
+  "item.snakemod.snake_eye": "Ojo de serpiente",
+  "item.snakemod.golden_snake_eye": "Ojo de serpiente dorado",
+  "item.snakemod.snake_egg": "Huevo de serpiente"
 }

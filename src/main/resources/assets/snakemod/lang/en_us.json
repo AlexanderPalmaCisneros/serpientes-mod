@@ -1,4 +1,8 @@
 {
   "itemGroup.snakemod": "Snake Mod",
-  "item.snakemod.snake_scale": "Snake Scale"
+  "item.snakemod.snake_scale": "Snake Scale",
+  "item.snakemod.snake_fang": "Snake Fang",
+  "item.snakemod.snake_eye": "Snake Eye",
+  "item.snakemod.golden_snake_eye": "Golden Snake Eye",
+  "item.snakemod.snake_egg": "Snake Egg"
 }
