@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "snakemod:snake_scale_block"
+    "snakemod:snake_scale_block",
+    "snakemod:snake_scale_stairs"
   ]
 }

@@ -6,5 +6,6 @@
   "item.snakemod.golden_snake_eye": "Golden Snake Eye",
   "item.snakemod.snake_egg": "Snake Egg",
   "block.snakemod.snake_scale_block": "Snake Scale Block",
-  "block.snakemod.snake_scale_carpet": "Snake Scale Carpet"
+  "block.snakemod.snake_scale_carpet": "Snake Scale Carpet",
+  "block.snakemod.snake_scale_stairs": "Snake Scale Stairs"
 }

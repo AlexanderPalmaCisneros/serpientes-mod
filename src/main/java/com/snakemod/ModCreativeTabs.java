@@ -24,6 +24,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.SNAKE_EGG.get());
                         output.accept(ModBlocks.SNAKE_SCALE_BLOCK_ITEM.get());
                         output.accept(ModBlocks.SNAKE_SCALE_CARPET_ITEM.get());
+                        output.accept(ModBlocks.SNAKE_SCALE_STAIRS_ITEM.get());
                     })
                     .build());
 
