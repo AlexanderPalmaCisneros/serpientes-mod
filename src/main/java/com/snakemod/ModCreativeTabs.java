@@ -22,6 +22,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.SNAKE_EYE.get());
                         output.accept(ModItems.GOLDEN_SNAKE_EYE.get());
                         output.accept(ModItems.SNAKE_EGG.get());
+                        output.accept(ModBlocks.SNAKE_SCALE_BLOCK_ITEM.get());
                     })
                     .build());
 

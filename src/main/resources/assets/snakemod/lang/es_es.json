@@ -4,5 +4,6 @@
   "item.snakemod.snake_fang": "Colmillo de serpiente",
   "item.snakemod.snake_eye": "Ojo de serpiente",
   "item.snakemod.golden_snake_eye": "Ojo de serpiente dorado",
-  "item.snakemod.snake_egg": "Huevo de serpiente"
+  "item.snakemod.snake_egg": "Huevo de serpiente",
+  "block.snakemod.snake_scale_block": "Bloque de escamas de serpiente"
 }

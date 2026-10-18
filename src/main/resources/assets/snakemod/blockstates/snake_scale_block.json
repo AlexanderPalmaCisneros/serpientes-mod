@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "snakemod:block/snake_scale_block_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "snakemod:block/snake_scale_block"
+    },
+    "axis=z": {
+      "model": "snakemod:block/snake_scale_block_horizontal",
+      "x": 90
+    }
+  }
+}

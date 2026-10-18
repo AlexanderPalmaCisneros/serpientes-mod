@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "snakemod:snake_scale_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "snakemod:snake_scale"
+  }
+}
