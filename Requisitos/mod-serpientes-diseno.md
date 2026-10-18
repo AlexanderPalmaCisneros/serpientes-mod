@@ -26,7 +26,7 @@ Mod de Minecraft Java centrado en serpientes. Añade una estructura de arena con
 | Brújula de la arena | Cofre del nido de serpientes (probabilidad) | Apunta a la arena más cercana |
 
 ### Bloques de escamas
-- Bloque de escamas, escaleras, losas, alfombra y otros derivados **[A DEFINIR: lista completa]**.
+- Bloque de escamas, escaleras, alfombra y otros derivados **[A DEFINIR: lista completa]**. **No habrá losa** (decidido por el autor). La alfombra es la primera que se hace, con el diseño de los lados del bloque y aspecto reactivo a sus vecinas (ver mecánica abajo, pendiente de confirmar).
 - **Bloque de escamas:** es un bloque de columna (se orienta en el eje x, y o z según cómo se coloque, como un tronco). Textura distinta en los lados y en los extremos (arriba y abajo iguales).
 - **Receta del bloque de escamas (decidido):** 9 escamas de serpiente en forma 3x3 dan 1 bloque. Receta inversa (decidido): 1 bloque da 9 escamas, sin forma fija. Recetas de los derivados: **[A DEFINIR]**.
 - Las trampas de colmillos solo se pueden colocar sobre bloques de escamas.

@@ -29,6 +29,19 @@ public class ModBlocks {
     public static final DeferredItem<BlockItem> SNAKE_SCALE_BLOCK_ITEM =
             ModItems.ITEMS.registerSimpleBlockItem("snake_scale_block", SNAKE_SCALE_BLOCK);
 
+    // Alfombra reactiva: su borde desaparece entre alfombras vecinas
+    public static final DeferredBlock<SnakeScaleCarpetBlock> SNAKE_SCALE_CARPET = BLOCKS.registerBlock(
+            "snake_scale_carpet",
+            SnakeScaleCarpetBlock::new,
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_GREEN)
+                    .strength(0.1F)
+                    .sound(SoundType.WOOL)
+                    .noOcclusion()); // tiene partes transparentes en el borde
+
+    public static final DeferredItem<BlockItem> SNAKE_SCALE_CARPET_ITEM =
+            ModItems.ITEMS.registerSimpleBlockItem("snake_scale_carpet", SNAKE_SCALE_CARPET);
+
     public static void register(IEventBus modEventBus) {
         BLOCKS.register(modEventBus);
     }

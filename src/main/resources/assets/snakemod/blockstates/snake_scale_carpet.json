@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "north=false,east=false,south=false,west=false": {
+      "model": "snakemod:block/snake_scale_carpet_none"
+    },
+    "north=false,east=false,south=false,west=true": {
+      "model": "snakemod:block/snake_scale_carpet_w"
+    },
+    "north=false,east=false,south=true,west=false": {
+      "model": "snakemod:block/snake_scale_carpet_s"
+    },
+    "north=false,east=false,south=true,west=true": {
+      "model": "snakemod:block/snake_scale_carpet_sw"
+    },
+    "north=false,east=true,south=false,west=false": {
+      "model": "snakemod:block/snake_scale_carpet_e"
+    },
+    "north=false,east=true,south=false,west=true": {
+      "model": "snakemod:block/snake_scale_carpet_ew"
+    },
+    "north=false,east=true,south=true,west=false": {
+      "model": "snakemod:block/snake_scale_carpet_es"
+    },
+    "north=false,east=true,south=true,west=true": {
+      "model": "snakemod:block/snake_scale_carpet_esw"
+    },
+    "north=true,east=false,south=false,west=false": {
+      "model": "snakemod:block/snake_scale_carpet_n"
+    },
+    "north=true,east=false,south=false,west=true": {
+      "model": "snakemod:block/snake_scale_carpet_nw"
+    },
+    "north=true,east=false,south=true,west=false": {
+      "model": "snakemod:block/snake_scale_carpet_ns"
+    },
+    "north=true,east=false,south=true,west=true": {
+      "model": "snakemod:block/snake_scale_carpet_nsw"
+    },
+    "north=true,east=true,south=false,west=false": {
+      "model": "snakemod:block/snake_scale_carpet_ne"
+    },
+    "north=true,east=true,south=false,west=true": {
+      "model": "snakemod:block/snake_scale_carpet_new"
+    },
+    "north=true,east=true,south=true,west=false": {
+      "model": "snakemod:block/snake_scale_carpet_nes"
+    },
+    "north=true,east=true,south=true,west=true": {
+      "model": "snakemod:block/snake_scale_carpet_nesw"
+    }
+  }
+}
