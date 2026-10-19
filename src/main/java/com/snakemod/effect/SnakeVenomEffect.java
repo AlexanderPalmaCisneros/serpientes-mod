@@ -11,7 +11,7 @@ import net.minecraft.world.entity.LivingEntity;
 public class SnakeVenomEffect extends MobEffect {
     // [A AJUSTAR] provisional balance values, change them here only
     public static final float DAMAGE = 1.0F;            // damage dealt on each pulse
-    public static final int BASE_INTERVAL_TICKS = 25;   // ticks between pulses at level I (20 ticks = 1 second)
+    public static final int BASE_INTERVAL_TICKS = 10;   // ticks between pulses at level I (20 ticks = 1 second). 10 = 2 damage per second (vanilla Poison I is about 0.8)
     public static final boolean CAN_KILL = false;       // false = like vanilla Poison, it never takes the last half heart
 
     public SnakeVenomEffect() {

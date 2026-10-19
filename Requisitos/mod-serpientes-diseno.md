@@ -37,12 +37,14 @@ Mod de Minecraft Java centrado en serpientes. Añade una estructura de arena con
 - **Trampa de colmillos:** al pisarla hace daño y envenena. No se rompe. Solo sobre bloques de escamas.
 
 ### Efectos propios (decidido)
-- **Veneno de serpiente (`snake_venom`):** efecto propio de daño con el tiempo que **afecta a todo ser vivo, incluidos los muertos vivientes** (el Veneno de vanilla no les afecta). Lo usan el arma de colmillos y, más adelante, la lanza, el lancero, el soldado y las trampas. Daño, intervalo y si puede matar: **[A AJUSTAR]** (constantes en `SnakeVenomEffect`). Si el antídoto lo cura: **[A DEFINIR]**.
+- **Veneno de serpiente (`snake_venom`):** efecto propio de daño con el tiempo que **afecta a todo ser vivo, incluidos los muertos vivientes** (el Veneno de vanilla no les afecta). Lo usan el arma de colmillos y, más adelante, la lanza, el lancero, el soldado y las trampas. Daño, intervalo y si puede matar: **[A AJUSTAR]** (constantes en `SnakeVenomEffect`). El antídoto lo cura y además da inmunidad (ver Pociones).
 - **Bendición reptiliana (`reptilian_blessing`):** efecto propio que da velocidad y fuerza (valores en `ReptilianBlessingEffect`, **[A AJUSTAR]**).
 
 ### Pociones
+- **Poción de veneno de serpiente:** se hace con colmillos. Aplica el efecto de veneno propio (también como poción arrojadiza, persistente y flecha). Duración **[A AJUSTAR]**.
 - **Poción de bendición reptiliana:** se hace con ojos de serpiente. Da velocidad y fuerza **[A AJUSTAR: duración]**.
-- **Antídoto:** se hace con colmillos. Es poción y también ingrediente de la mejora de armadura.
+- **Antídoto:** se hace a partir de la poción de veneno (colmillo) más un ojo de serpiente. Es poción y también ingrediente de la mejora de armadura. **Efecto (decidido):** al beberlo cura el veneno de serpiente y el Veneno de vanilla, y además da **inmunidad** a ambos mientras dura. Duración **[A AJUSTAR]** (`ModPotions`).
+- **Recetas de alambique (decidido):** poción rara (*awkward*) + colmillo de serpiente = **poción de veneno de serpiente**; poción de veneno de serpiente + ojo de serpiente = **antídoto** (como un antiveneno real, se hace a partir del veneno); poción rara + ojo de serpiente = bendición reptiliana. Así el antídoto necesita un colmillo y un ojo (el ojo solo lo sueltan los lanceros): afecta al coste de la mejora de armadura.
 
 ---
 

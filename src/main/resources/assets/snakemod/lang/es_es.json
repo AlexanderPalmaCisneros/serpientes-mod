@@ -10,5 +10,18 @@
   "block.snakemod.snake_scale_stairs": "Escaleras de escamas de serpiente",
   "item.snakemod.fang_claws": "Garras de colmillos",
   "effect.snakemod.snake_venom": "Veneno de serpiente",
-  "effect.snakemod.reptilian_blessing": "Bendición reptil"
+  "effect.snakemod.reptilian_blessing": "Bendición reptil",
+  "effect.snakemod.antidote": "Antídoto",
+  "item.minecraft.potion.effect.antidote": "Antídoto",
+  "item.minecraft.splash_potion.effect.antidote": "Antídoto arrojadizo",
+  "item.minecraft.lingering_potion.effect.antidote": "Antídoto persistente",
+  "item.minecraft.tipped_arrow.effect.antidote": "Flecha de antídoto",
+  "item.minecraft.potion.effect.reptilian_blessing": "Poción de bendición reptil",
+  "item.minecraft.splash_potion.effect.reptilian_blessing": "Poción arrojadiza de bendición reptil",
+  "item.minecraft.lingering_potion.effect.reptilian_blessing": "Poción persistente de bendición reptil",
+  "item.minecraft.tipped_arrow.effect.reptilian_blessing": "Flecha de bendición reptil",
+  "item.minecraft.potion.effect.snake_venom": "Poción de veneno de serpiente",
+  "item.minecraft.splash_potion.effect.snake_venom": "Poción arrojadiza de veneno de serpiente",
+  "item.minecraft.lingering_potion.effect.snake_venom": "Poción persistente de veneno de serpiente",
+  "item.minecraft.tipped_arrow.effect.snake_venom": "Flecha de veneno de serpiente"
 }

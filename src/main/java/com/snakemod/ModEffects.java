@@ -1,5 +1,6 @@
 package com.snakemod;
 
+import com.snakemod.effect.AntidoteEffect;
 import com.snakemod.effect.ReptilianBlessingEffect;
 import com.snakemod.effect.SnakeVenomEffect;
 
@@ -18,6 +19,9 @@ public class ModEffects {
 
     public static final DeferredHolder<MobEffect, ReptilianBlessingEffect> REPTILIAN_BLESSING =
             EFFECTS.register("reptilian_blessing", ReptilianBlessingEffect::new);
+
+    public static final DeferredHolder<MobEffect, AntidoteEffect> ANTIDOTE =
+            EFFECTS.register("antidote", AntidoteEffect::new);
 
     public static void register(IEventBus modEventBus) {
         EFFECTS.register(modEventBus);

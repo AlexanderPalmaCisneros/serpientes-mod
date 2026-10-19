@@ -85,11 +85,11 @@ def rectangles(inside):
 
 def model_for(nm, inside, dark_px):
     """Boxes of 1/16 height following the mask. 1 texture px = 0.5 model units."""
-    h = lambda v: v / 2
+    h = lambda v: v * 16 / SIZE
     def exposed(cells):
         return any(not (0 <= cx < SIZE and 0 <= cy < SIZE and inside[cy][cx]) and not (cx < 0 or cx >= SIZE or cy < 0 or cy >= SIZE) or False for cx, cy in cells)
     ux, uy = h(dark_px[0]), h(dark_px[1])
-    dark_uv = [ux, uy, ux + 0.5, uy + 0.5]
+    dark_uv = [ux, uy, ux + 16 / SIZE, uy + 16 / SIZE]
     elements = []
     for x0, y0, x1, y1 in rectangles(inside):
         faces = {"up": {"uv": [h(x0), h(y0), h(x1), h(y1)], "texture": "#tex"}}
