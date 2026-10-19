@@ -33,7 +33,7 @@ Mod de Minecraft Java centrado en serpientes. Añade una estructura de arena con
 
 ### Armas
 - **Arma de colmillos:** envenena al golpear. Es un puño americano con dos colmillos (modelo 3D que hará el autor), solo arma de daño (sin funciones de espada). Receta (decidido): 3 lingotes de hierro en la fila de abajo y 2 colmillos justo encima, en los lados (centro vacío). Daño, velocidad de ataque, durabilidad y duración del veneno: **[A AJUSTAR]** (constantes en `FangClawsItem` y `ModTiers`).
-- **Lanza arrojadiza de colmillos:** funciona como el tridente (se lanza y se recoge). Envenena.
+- **Lanza arrojadiza de colmillos:** funciona como el tridente (se lanza y se recoge). Envenena con el veneno de serpiente, tanto al lanzarla como en cuerpo a cuerpo. **Decidido:** receta de 1 colmillo y 2 palos en diagonal (colmillo arriba a la derecha); cualquier jugador puede recogerla del suelo; no tiene Lealtad ni Impulso. Daño, velocidad de lanzamiento, durabilidad y duración del veneno: **[A AJUSTAR]** (constantes en `SnakeSpearItem`).
 - **Trampa de colmillos:** al pisarla hace daño y envenena. No se rompe. Solo sobre bloques de escamas.
 
 ### Efectos propios (decidido)

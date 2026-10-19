@@ -1,5 +1,7 @@
 package com.snakemod;
 
+import com.snakemod.item.SnakeSpearItem;
+
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -20,6 +22,10 @@ public class ModItems {
     // Arma de colmillos: puño americano que envenena al golpear
     public static final DeferredItem<FangClawsItem> FANG_CLAWS = ITEMS.registerItem("fang_claws",
             properties -> new FangClawsItem(ModTiers.FANG, properties));
+
+    // Lanza arrojadiza con punta de colmillo
+    public static final DeferredItem<SnakeSpearItem> SNAKE_SPEAR = ITEMS.registerItem("snake_spear",
+            SnakeSpearItem::new, SnakeSpearItem.createProperties());
 
     // Entrega la lista a Minecraft (se llama desde el constructor del mod)
     public static void register(IEventBus modEventBus) {

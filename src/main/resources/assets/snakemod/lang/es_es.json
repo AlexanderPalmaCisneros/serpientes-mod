@@ -23,5 +23,7 @@
   "item.minecraft.potion.effect.snake_venom": "Poción de veneno de serpiente",
   "item.minecraft.splash_potion.effect.snake_venom": "Poción arrojadiza de veneno de serpiente",
   "item.minecraft.lingering_potion.effect.snake_venom": "Poción persistente de veneno de serpiente",
-  "item.minecraft.tipped_arrow.effect.snake_venom": "Flecha de veneno de serpiente"
+  "item.minecraft.tipped_arrow.effect.snake_venom": "Flecha de veneno de serpiente",
+  "item.snakemod.snake_spear": "Lanza de serpiente",
+  "entity.snakemod.snake_spear": "Lanza de serpiente"
 }
