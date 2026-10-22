@@ -25,5 +25,14 @@
   "item.minecraft.lingering_potion.effect.snake_venom": "Lingering Potion of Snake Venom",
   "item.minecraft.tipped_arrow.effect.snake_venom": "Arrow of Snake Venom",
   "item.snakemod.snake_spear": "Snake Spear",
-  "entity.snakemod.snake_spear": "Snake Spear"
+  "entity.snakemod.snake_spear": "Snake Spear",
+  "item.snakemod.snake_upgrade_template": "Smithing Template",
+  "upgrade.snakemod.snake_upgrade": "Snake Upgrade",
+  "item.snakemod.smithing_template.snake_upgrade.applies_to": "Netherite Armor",
+  "item.snakemod.smithing_template.snake_upgrade.ingredients": "Snake Scale",
+  "item.snakemod.smithing_template.snake_upgrade.base_slot_description": "Add netherite chestplate, leggings or boots",
+  "item.snakemod.smithing_template.snake_upgrade.additions_slot_description": "Add Snake Scale",
+  "item.snakemod.snake_scale_chestplate": "Snake Scale Chestplate",
+  "item.snakemod.snake_scale_leggings": "Snake Scale Leggings",
+  "item.snakemod.snake_scale_boots": "Snake Scale Boots"
 }

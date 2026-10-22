@@ -35,6 +35,7 @@ public class SnakeMod {
 
         // Our own registries: items and creative tabs
         ModItems.register(modEventBus);
+        ModArmorMaterials.register(modEventBus);
         ModEntities.register(modEventBus);
         ModEffects.register(modEventBus);
         ModPotions.register(modEventBus);

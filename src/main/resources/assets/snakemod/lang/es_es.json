@@ -25,5 +25,14 @@
   "item.minecraft.lingering_potion.effect.snake_venom": "Poción persistente de veneno de serpiente",
   "item.minecraft.tipped_arrow.effect.snake_venom": "Flecha de veneno de serpiente",
   "item.snakemod.snake_spear": "Lanza de serpiente",
-  "entity.snakemod.snake_spear": "Lanza de serpiente"
+  "entity.snakemod.snake_spear": "Lanza de serpiente",
+  "item.snakemod.snake_upgrade_template": "Plantilla de herrería",
+  "upgrade.snakemod.snake_upgrade": "Mejora de serpiente",
+  "item.snakemod.smithing_template.snake_upgrade.applies_to": "Armadura de netherita",
+  "item.snakemod.smithing_template.snake_upgrade.ingredients": "Escama de serpiente",
+  "item.snakemod.smithing_template.snake_upgrade.base_slot_description": "Coloca un peto, pantalones o botas de netherita",
+  "item.snakemod.smithing_template.snake_upgrade.additions_slot_description": "Coloca una escama de serpiente",
+  "item.snakemod.snake_scale_chestplate": "Peto de escamas de serpiente",
+  "item.snakemod.snake_scale_leggings": "Pantalones de escamas de serpiente",
+  "item.snakemod.snake_scale_boots": "Botas de escamas de serpiente"
 }

@@ -1,8 +1,11 @@
 package com.snakemod;
 
 import com.snakemod.item.SnakeSpearItem;
+import com.snakemod.item.SnakeUpgradeTemplate;
 
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SmithingTemplateItem;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -26,6 +29,21 @@ public class ModItems {
     // Lanza arrojadiza con punta de colmillo
     public static final DeferredItem<SnakeSpearItem> SNAKE_SPEAR = ITEMS.registerItem("snake_spear",
             SnakeSpearItem::new, SnakeSpearItem.createProperties());
+
+    // Plantilla de mejora de serpiente: botín de la arena, se usa en la mesa de herrería
+    public static final DeferredItem<SmithingTemplateItem> SNAKE_UPGRADE_TEMPLATE = ITEMS.register(
+            "snake_upgrade_template", SnakeUpgradeTemplate::create);
+
+    // Armadura de escamas: plantilla + pieza de netherite + bloque de escamas en la mesa de herrería
+    public static final DeferredItem<ArmorItem> SNAKE_SCALE_CHESTPLATE = registerArmor("snake_scale_chestplate", ArmorItem.Type.CHESTPLATE);
+    public static final DeferredItem<ArmorItem> SNAKE_SCALE_LEGGINGS = registerArmor("snake_scale_leggings", ArmorItem.Type.LEGGINGS);
+    public static final DeferredItem<ArmorItem> SNAKE_SCALE_BOOTS = registerArmor("snake_scale_boots", ArmorItem.Type.BOOTS);
+
+    private static DeferredItem<ArmorItem> registerArmor(String name, ArmorItem.Type type) {
+        return ITEMS.register(name, () -> new ArmorItem(ModArmorMaterials.SNAKE_SCALE, type, new Item.Properties()
+                .durability(type.getDurability(ModArmorMaterials.DURABILITY_FACTOR))
+                .fireResistant())); // like netherite, it does not burn in lava
+    }
 
     // Entrega la lista a Minecraft (se llama desde el constructor del mod)
     public static void register(IEventBus modEventBus) {

@@ -1,0 +1,59 @@
+package com.snakemod.client;
+
+import com.snakemod.SnakeMod;
+
+import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.CubeDeformation;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
+import net.minecraft.client.model.geom.builders.PartDefinition;
+import net.minecraft.resources.ResourceLocation;
+
+/**
+ * Chestplate model: the normal armor shape plus three 3D fangs on each shoulder.
+ * The fangs use the free corner of snake_scale_layer_1.png (x 56-60, y 16-23).
+ */
+public final class SnakeScaleArmorModel {
+    public static final ModelLayerLocation LAYER =
+            new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(SnakeMod.MODID, "snake_scale_armor"), "main");
+
+    // Same "inflation" vanilla uses for the outer armor layer, so it sits over the skin
+    private static final CubeDeformation OUTER = new CubeDeformation(1.0F);
+
+    // Fang placement on the shoulder: z position (front to back), extra height, tilt outward (radians)
+    private static final float[][] FANGS = {
+            {-1.7F, 0.0F, 0.55F},
+            {0.0F, -0.4F, 0.40F},
+            {1.7F, 0.0F, 0.55F},
+    };
+    private static final float TIP_BEND = 0.45F; // the tip bends further out, so the fang looks curved
+
+    private SnakeScaleArmorModel() {
+    }
+
+    public static LayerDefinition createLayer() {
+        MeshDefinition mesh = HumanoidModel.createMesh(OUTER, 0.0F);
+        PartDefinition root = mesh.getRoot();
+        addFangs(root.getChild("right_arm"), -1);
+        addFangs(root.getChild("left_arm"), 1);
+        return LayerDefinition.create(mesh, 64, 32);
+    }
+
+    // side = -1 for the right arm (outward is -X), +1 for the left arm
+    private static void addFangs(PartDefinition arm, int side) {
+        // Top of the arm armor is at y = -3; the outer half of the shoulder is around x = 1.5 * side
+        float x = side == -1 ? -2.5F : 2.5F;
+        for (int i = 0; i < FANGS.length; i++) {
+            float z = FANGS[i][0], y = -3.0F + FANGS[i][1], tilt = FANGS[i][2] * side;
+            PartDefinition base = arm.addOrReplaceChild("fang_" + i,
+                    CubeListBuilder.create().texOffs(56, 16).addBox(-0.5F, -2.0F, -0.5F, 1.0F, 2.0F, 1.0F, new CubeDeformation(0.3F)),
+                    PartPose.offsetAndRotation(x, y, z, 0.0F, 0.0F, tilt));
+            base.addOrReplaceChild("tip",
+                    CubeListBuilder.create().texOffs(56, 20).addBox(-0.5F, -2.0F, -0.5F, 1.0F, 2.0F, 1.0F, new CubeDeformation(0.05F)),
+                    PartPose.offsetAndRotation(0.0F, -2.0F, 0.0F, 0.0F, 0.0F, TIP_BEND * side));
+        }
+    }
+}

@@ -1,0 +1,102 @@
+package com.snakemod.client;
+
+import com.snakemod.SnakeMod;
+
+import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.CubeDeformation;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
+import net.minecraft.client.model.geom.builders.PartDefinition;
+import net.minecraft.resources.ResourceLocation;
+
+/**
+ * Chestplate model: the normal armor shape plus 3D relief.
+ * - Bulky shoulder pads with three curved fangs each.
+ * - A raised collar and two V-shaped ridges on the chest.
+ * - Small dorsal spines down the back.
+ * The extra pieces use the top half of snake_scale_layer_1.png (pad 0,0; collar 26,0; ridges 58,0 and 26,9; spines 31,9) (free, because the set has no helmet)
+ * and the corner x 56-60, y 16-23 for the fangs.
+ */
+public final class SnakeScaleArmorModel {
+    public static final ModelLayerLocation LAYER =
+            new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(SnakeMod.MODID, "snake_scale_armor"), "main");
+
+    // Same "inflation" vanilla uses for the outer armor layer, so it sits over the skin
+    private static final CubeDeformation OUTER = new CubeDeformation(1.0F);
+
+    // Fang placement on the shoulder pad: z position (front to back), extra height, tilt outward (radians)
+    private static final float[][] FANGS = {
+            {-2.0F, 0.0F, 0.55F},
+            {0.0F, -0.4F, 0.40F},
+            {2.0F, 0.0F, 0.55F},
+    };
+    private static final float TIP_BEND = 0.45F; // the tip bends further out, so the fang looks curved
+
+    // Chest ridges: {pivot y (bottom of the V), length, angle in radians}
+    private static final float[][] CHEST_V = {
+            {7.0F, 8.0F, 0.55F},
+            {12.0F, 5.0F, 0.60F},
+    };
+    private static final float[] SPINE_Y = {2.0F, 5.0F, 8.0F};
+
+    private SnakeScaleArmorModel() {
+    }
+
+    public static LayerDefinition createLayer() {
+        MeshDefinition mesh = HumanoidModel.createMesh(OUTER, 0.0F);
+        PartDefinition root = mesh.getRoot();
+        addShoulder(root.getChild("right_arm"), -1);
+        addShoulder(root.getChild("left_arm"), 1);
+        addChest(root.getChild("body"));
+        return LayerDefinition.create(mesh, 64, 32);
+    }
+
+    // side = -1 for the right arm (outward is -X), +1 for the left arm
+    private static void addShoulder(PartDefinition arm, int side) {
+        // Shoulder pad: wider and taller than the arm armor, sticking out on the outer side
+        float padX = side == -1 ? -4.6F : -1.4F;
+        CubeListBuilder pad = CubeListBuilder.create().texOffs(0, 0);
+        if (side == 1) pad.mirror();
+        arm.addOrReplaceChild("shoulder_pad", pad.addBox(padX, -3.6F, -3.5F, 6.0F, 4.0F, 7.0F),
+                PartPose.ZERO);
+
+        float x = 3.0F * side;
+        for (int i = 0; i < FANGS.length; i++) {
+            float z = FANGS[i][0], y = -3.6F + FANGS[i][1], tilt = FANGS[i][2] * side;
+            PartDefinition base = arm.addOrReplaceChild("fang_" + i,
+                    CubeListBuilder.create().texOffs(56, 16).addBox(-0.5F, -2.0F, -0.5F, 1.0F, 2.0F, 1.0F, new CubeDeformation(0.3F)),
+                    PartPose.offsetAndRotation(x, y, z, 0.0F, 0.0F, tilt));
+            base.addOrReplaceChild("tip",
+                    CubeListBuilder.create().texOffs(56, 20).addBox(-0.5F, -2.0F, -0.5F, 1.0F, 2.0F, 1.0F, new CubeDeformation(0.05F)),
+                    PartPose.offsetAndRotation(0.0F, -2.0F, 0.0F, 0.0F, 0.0F, TIP_BEND * side));
+        }
+    }
+
+    private static void addChest(PartDefinition body) {
+        // Raised collar around the neck
+        body.addOrReplaceChild("collar",
+                CubeListBuilder.create().texOffs(26, 0).addBox(-4.5F, -1.6F, -3.5F, 9.0F, 2.0F, 7.0F),
+                PartPose.ZERO);
+
+        // Two V shapes on the chest: each arm of the V is a thin bar turned from the bottom point
+        for (int v = 0; v < CHEST_V.length; v++) {
+            float pivotY = CHEST_V[v][0], length = CHEST_V[v][1], angle = CHEST_V[v][2];
+            int texX = v == 0 ? 58 : 26, texY = v == 0 ? 0 : 9;
+            for (int s = -1; s <= 1; s += 2) {
+                body.addOrReplaceChild("ridge_" + v + (s < 0 ? "_r" : "_l"),
+                        CubeListBuilder.create().texOffs(texX, texY).addBox(-0.6F, -length, -0.5F, 1.2F, length, 1.0F),
+                        PartPose.offsetAndRotation(0.0F, pivotY, -3.1F, 0.0F, 0.0F, angle * s));
+            }
+        }
+
+        // Dorsal spines down the back, leaning down like scales
+        for (int i = 0; i < SPINE_Y.length; i++) {
+            body.addOrReplaceChild("spine_" + i,
+                    CubeListBuilder.create().texOffs(31, 9).addBox(-0.5F, -0.5F, 0.0F, 1.0F, 1.0F, 2.0F),
+                    PartPose.offsetAndRotation(0.0F, SPINE_Y[i], 2.8F, -0.5F, 0.0F, 0.0F));
+        }
+    }
+}

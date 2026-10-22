@@ -21,8 +21,8 @@ Mod de Minecraft Java centrado en serpientes. Añade una estructura de arena con
 | Ojo de serpiente | Lanceros (R2) | Poción de bendición reptiliana |
 | Ojo de serpiente dorado | Botín de la arena | Necesario para subir la mascota a nivel 5 |
 | Huevo de serpiente | Primera victoria en la arena (único) | Mascota |
-| Antídoto | Se craftea con colmillos | Poción e ingrediente de la mejora de armadura |
-| Plantilla de mejora | Botín de la arena | Mejora de armadura |
+| Antídoto | Se craftea con colmillos | Poción; con una pieza de armadura de escamas le da la inmunidad |
+| Plantilla de mejora de serpiente | Botín de la arena | Fabricar cada pieza de la armadura de escamas en la mesa de herrería |
 | Brújula de la arena | Cofre del nido de serpientes (probabilidad) | Apunta a la arena más cercana |
 
 ### Bloques de escamas
@@ -196,12 +196,14 @@ Hibernación es un estado aparte que anula todos los demás excepto el temporiza
 
 ### 6.1 Crafteo
 - Piezas: **peto, pantalón y botas**.
-- Receta: escamas + netherite en la mesa de crafteo **[A DEFINIR: receta exacta]**.
+- **Receta (decidido):** en la **mesa de herrería**, plantilla de mejora de serpiente + pieza de netherite (peto, pantalón o botas) + **una escama de serpiente** = la pieza de escamas. Como la mejora de netherita de vanilla, conserva los encantamientos y el desgaste. Las escamas solas no bastan: la plantilla (botín de la arena) limita cuántas piezas se pueden hacer.
+- **Aspecto (decidido):** negra con escamas verde lima y una V en el pecho; el peto lleva **tres colmillos 3D en cada hombro**. Sin casco en este set.
+- Estadísticas: **[A AJUSTAR]**, de momento iguales a la netherita (constantes en `ModArmorMaterials`). No se quema en lava. Se repara en el yunque con escamas.
 
 ### 6.2 Bendición reptiliana (peto + pantalón + botas)
 - Requiere las **tres piezas**. El casco no participa.
 - Se activa cuando la vida está **por debajo de 3.5 corazones**.
-- Efectos: **velocidad y fuerza**.
+- Efectos: **velocidad y fuerza**. **Decidido:** es el mismo efecto `reptilian_blessing` de la poción de bendición reptiliana.
 - Al activarse, una **pequeña explosión** envenena a los mobs cercanos (no afecta a jugadores). **Cooldown: 1 minuto y medio.**
 - El efecto continúa mientras sigas por debajo de 3.5 corazones. Al subir por encima, dura **3 segundos más**.
 - Valores (potencia, radio, duración del veneno): [A AJUSTAR]. Si resulta muy fuerte, acortar el efecto o quitar la fuerza.
@@ -218,8 +220,8 @@ Hibernación es un estado aparte que anula todos los demás excepto el temporiza
 ## 7. Mejora de armadura (antídoto)
 
 - **Antídoto:** se craftea con colmillos.
-- **Plantilla de mejora:** botín de la arena (30%).
-- **Mesa de mejora:** se coloca la pieza de armadura + plantilla + antídoto.
+- **Plantilla de mejora:** botín de la arena (30%). Se usa al fabricar cada pieza (6.1).
+- **Mejora (decidido):** pieza de armadura de escamas + antídoto. La plantilla ya se gasta al fabricar la pieza (ver 6.1), así que aquí no hace falta. Estación exacta: **[A DEFINIR]** en la fase 5.
 - Se necesita **una mejora por pieza** (peto, pantalón y botas).
 - Con el **set completo mejorado**: inmunidad al **veneno** y al **wither**.
 - Balance: considerar wither reducido en vez de inmune [A AJUSTAR].

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "snakemod:snake_upgrade_template"
+  },
+  "base": {
+    "item": "minecraft:netherite_leggings"
+  },
+  "addition": {
+    "item": "snakemod:snake_scale"
+  },
+  "result": {
+    "id": "snakemod:snake_scale_leggings",
+    "count": 1
+  }
+}
