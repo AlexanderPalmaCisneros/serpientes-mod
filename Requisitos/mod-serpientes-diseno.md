@@ -205,6 +205,7 @@ Hibernación es un estado aparte que anula todos los demás excepto el temporiza
 - Se activa cuando la vida está **por debajo de 3.5 corazones**. **Decidido:** es un umbral fijo (7 puntos de vida), no una proporción de la vida máxima. Solo cuenta la vida roja, no los corazones dorados de absorción.
 - Efectos: **velocidad y fuerza**. **Decidido:** es el mismo efecto `reptilian_blessing` de la poción de bendición reptiliana.
 - Al activarse, una **pequeña explosión** envenena a los mobs cercanos (no afecta a jugadores). **Cooldown: 1 minuto y medio.**
+- **Explosión (decidido):** solo visual (nube verde, sonido y empuje), no rompe bloques ni hace daño directo; solo aplica el veneno de serpiente. Afecta a todos los mobs (también pacíficos) **menos jugadores y las mascotas del portador**. Lo de los jugadores podría cambiarse más adelante (constante `AFFECTS_PLAYERS` en `SnakeScaleArmorEvents`). El cooldown se ve como recarga en el ícono del peto.
 - El efecto continúa mientras sigas por debajo de 3.5 corazones. Al subir por encima, dura **3 segundos más**.
 - Valores (potencia, radio, duración del veneno): [A AJUSTAR]. Si resulta muy fuerte, acortar el efecto o quitar la fuerza.
 
