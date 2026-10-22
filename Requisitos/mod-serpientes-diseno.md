@@ -202,7 +202,7 @@ Hibernación es un estado aparte que anula todos los demás excepto el temporiza
 
 ### 6.2 Bendición reptiliana (peto + pantalón + botas)
 - Requiere las **tres piezas**. El casco no participa.
-- Se activa cuando la vida está **por debajo de 3.5 corazones**.
+- Se activa cuando la vida está **por debajo de 3.5 corazones**. **Decidido:** es un umbral fijo (7 puntos de vida), no una proporción de la vida máxima. Solo cuenta la vida roja, no los corazones dorados de absorción.
 - Efectos: **velocidad y fuerza**. **Decidido:** es el mismo efecto `reptilian_blessing` de la poción de bendición reptiliana.
 - Al activarse, una **pequeña explosión** envenena a los mobs cercanos (no afecta a jugadores). **Cooldown: 1 minuto y medio.**
 - El efecto continúa mientras sigas por debajo de 3.5 corazones. Al subir por encima, dura **3 segundos más**.
