@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "vertical_direction=up": {
+      "model": "snakemod:block/fang_trap"
+    },
+    "vertical_direction=down": {
+      "model": "snakemod:block/fang_trap",
+      "x": 180
+    }
+  }
+}

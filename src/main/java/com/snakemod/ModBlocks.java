@@ -1,11 +1,15 @@
 package com.snakemod;
 
+import com.snakemod.item.FangTrapItem;
+
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -53,6 +57,21 @@ public class ModBlocks {
 
     public static final DeferredItem<BlockItem> SNAKE_SCALE_STAIRS_ITEM =
             ModItems.ITEMS.registerSimpleBlockItem("snake_scale_stairs", SNAKE_SCALE_STAIRS);
+
+    // Trampa de colmillos: solo se coloca sobre el bloque de escamas
+    public static final DeferredBlock<FangTrapBlock> FANG_TRAP = BLOCKS.registerBlock(
+            "fang_trap",
+            FangTrapBlock::new,
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.SAND)
+                    .strength(1.5F)                     // TODO: provisional, not in the design doc
+                    .sound(SoundType.BONE_BLOCK)
+                    .noOcclusion()                      // made of thin planes, you can see through it
+                    .pushReaction(PushReaction.DESTROY)); // a piston breaks it instead of pushing it
+
+    // Su ítem avisa en pantalla si intentas ponerla en un lugar no válido
+    public static final DeferredItem<FangTrapItem> FANG_TRAP_ITEM =
+            ModItems.ITEMS.register("fang_trap", () -> new FangTrapItem(FANG_TRAP.get(), new Item.Properties()));
 
     public static void register(IEventBus modEventBus) {
         BLOCKS.register(modEventBus);

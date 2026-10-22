@@ -38,5 +38,7 @@
   "item.snakemod.antidote_snake_scale_chestplate": "Peto de escamas de serpiente",
   "item.snakemod.antidote_snake_scale_leggings": "Pantalones de escamas de serpiente",
   "item.snakemod.antidote_snake_scale_boots": "Botas de escamas de serpiente",
-  "tooltip.snakemod.antidote_upgrade": "✦ Mejorado con antídoto ✦"
+  "tooltip.snakemod.antidote_upgrade": "✦ Mejorado con antídoto ✦",
+  "block.snakemod.fang_trap": "Trampa de colmillos",
+  "message.snakemod.fang_trap_wrong_place": "Solo en los extremos de una columna de escamas"
 }

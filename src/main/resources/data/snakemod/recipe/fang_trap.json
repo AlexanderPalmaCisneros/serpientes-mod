@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "FFF"
+  ],
+  "key": {
+    "F": {
+      "item": "snakemod:snake_fang"
+    }
+  },
+  "result": {
+    "id": "snakemod:fang_trap",
+    "count": 1
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "parent": "minecraft:block/block",
+  "ambientocclusion": false,
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "tip": "snakemod:item/snake_spear_tip",
+    "fang": "snakemod:item/snake_fang",
+    "particle": "snakemod:item/snake_fang"
+  },
+  "elements": [
+    {
+      "name": "tip_a",
+      "from": [
+        4.75,
+        0,
+        8
+      ],
+      "to": [
+        11.25,
+        13,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#tip"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#tip"
+        }
+      }
+    },
+    {
+      "name": "tip_b",
+      "from": [
+        8,
+        0,
+        4.75
+      ],
+      "to": [
+        8,
+        13,
+        11.25
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#tip"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#tip"
+        }
+      }
+    },
+    {
+      "name": "fang_west",
+      "from": [
+        -2.5469,
+        -1.3125,
+        3
+      ],
+      "to": [
+        7.9531,
+        9.1875,
+        3
+      ],
+      "rotation": {
+        "angle": -22.5,
+        "axis": "z",
+        "origin": [
+          5,
+          0,
+          3
+        ]
+      },
+      "faces": {
+        "south": {
+          "uv": [
+            0,
+            16,
+            16,
+            0
+          ],
+          "texture": "#fang"
+        },
+        "north": {
+          "uv": [
+            16,
+            16,
+            0,
+            0
+          ],
+          "texture": "#fang"
+        }
+      }
+    },
+    {
+      "name": "fang_east",
+      "from": [
+        8.0469,
+        -1.3125,
+        13
+      ],
+      "to": [
+        18.5469,
+        9.1875,
+        13
+      ],
+      "rotation": {
+        "angle": 22.5,
+        "axis": "z",
+        "origin": [
+          11,
+          0,
+          13
+        ]
+      },
+      "faces": {
+        "south": {
+          "uv": [
+            16,
+            16,
+            0,
+            0
+          ],
+          "texture": "#fang"
+        },
+        "north": {
+          "uv": [
+            0,
+            16,
+            16,
+            0
+          ],
+          "texture": "#fang"
+        }
+      }
+    },
+    {
+      "name": "fang_north",
+      "from": [
+        13,
+        -1.3125,
+        -2.5469
+      ],
+      "to": [
+        13,
+        9.1875,
+        7.9531
+      ],
+      "rotation": {
+        "angle": 22.5,
+        "axis": "x",
+        "origin": [
+          13,
+          0,
+          5
+        ]
+      },
+      "faces": {
+        "west": {
+          "uv": [
+            0,
+            16,
+            16,
+            0
+          ],
+          "texture": "#fang"
+        },
+        "east": {
+          "uv": [
+            16,
+            16,
+            0,
+            0
+          ],
+          "texture": "#fang"
+        }
+      }
+    },
+    {
+      "name": "fang_south",
+      "from": [
+        3,
+        -1.3125,
+        8.0469
+      ],
+      "to": [
+        3,
+        9.1875,
+        18.5469
+      ],
+      "rotation": {
+        "angle": -22.5,
+        "axis": "x",
+        "origin": [
+          3,
+          0,
+          11
+        ]
+      },
+      "faces": {
+        "west": {
+          "uv": [
+            16,
+            16,
+            0,
+            0
+          ],
+          "texture": "#fang"
+        },
+        "east": {
+          "uv": [
+            0,
+            16,
+            16,
+            0
+          ],
+          "texture": "#fang"
+        }
+      }
+    }
+  ]
+}

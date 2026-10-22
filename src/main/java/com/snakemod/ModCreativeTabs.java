@@ -40,6 +40,7 @@ public class ModCreativeTabs {
                         output.accept(ModBlocks.SNAKE_SCALE_BLOCK_ITEM.get());
                         output.accept(ModBlocks.SNAKE_SCALE_CARPET_ITEM.get());
                         output.accept(ModBlocks.SNAKE_SCALE_STAIRS_ITEM.get());
+                        output.accept(ModBlocks.FANG_TRAP_ITEM.get());
                         // Pociones del mod: normal, arrojadiza, persistente y flecha con efecto
                         for (Holder<Potion> potion : List.of(ModPotions.SNAKE_VENOM, ModPotions.ANTIDOTE,
                                 ModPotions.REPTILIAN_BLESSING)) {

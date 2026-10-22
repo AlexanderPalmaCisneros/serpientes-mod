@@ -38,5 +38,7 @@
   "item.snakemod.antidote_snake_scale_chestplate": "Snake Scale Chestplate",
   "item.snakemod.antidote_snake_scale_leggings": "Snake Scale Leggings",
   "item.snakemod.antidote_snake_scale_boots": "Snake Scale Boots",
-  "tooltip.snakemod.antidote_upgrade": "✦ Antidote upgrade ✦"
+  "tooltip.snakemod.antidote_upgrade": "✦ Antidote upgrade ✦",
+  "block.snakemod.fang_trap": "Fang Trap",
+  "message.snakemod.fang_trap_wrong_place": "Only on the ends of a scale column"
 }
