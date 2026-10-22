@@ -4,12 +4,17 @@ import com.snakemod.ModEffects;
 import com.snakemod.ModItems;
 import com.snakemod.SnakeMod;
 
+import com.snakemod.item.SnakeScaleArmorItem;
+
+import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ColorParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.OwnableEntity;
@@ -19,13 +24,14 @@ import net.minecraft.world.phys.AABB;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
 /**
  * Set bonus of the snake scale armor (chestplate + leggings + boots, the helmet does not count):
  * below 3.5 hearts the player gets the reptilian blessing. It lasts while the health stays low,
  * and 3 more seconds after going back above. When the health first drops below, a poison burst
- * envenoms the nearby mobs (cooldown 1.5 minutes).
+ * envenoms the nearby mobs (cooldown 1 minute).
  */
 @EventBusSubscriber(modid = SnakeMod.MODID)
 public class SnakeScaleArmorEvents {
@@ -40,8 +46,8 @@ public class SnakeScaleArmorEvents {
     private static final int REFRESH_BELOW = GRACE_TICKS - 10;
 
     // Poison burst
-    public static final int BURST_COOLDOWN_TICKS = 1800;  // 1.5 minutes (decided)
-    public static final double BURST_RADIUS = 4.0;         // [A AJUSTAR] blocks
+    public static final int BURST_COOLDOWN_TICKS = 1200;  // 1 minute (decided)
+    public static final double BURST_RADIUS = 6.0;         // [A AJUSTAR] blocks
     public static final int BURST_VENOM_TICKS = 100;       // [A AJUSTAR] 5 seconds of venom
     public static final int BURST_VENOM_AMPLIFIER = 0;     // [A AJUSTAR] venom level I
     public static final float BURST_KNOCKBACK = 0.6F;      // [A AJUSTAR] push strength
@@ -81,14 +87,16 @@ public class SnakeScaleArmorEvents {
         if (!crossedThreshold || !hasFullSet(player) || player.getCooldowns().isOnCooldown(ModItems.SNAKE_SCALE_CHESTPLATE.get())) {
             return;
         }
+        // Both chestplates share the cooldown, so swapping them does not skip the wait
         player.getCooldowns().addCooldown(ModItems.SNAKE_SCALE_CHESTPLATE.get(), BURST_COOLDOWN_TICKS);
+        player.getCooldowns().addCooldown(ModItems.ANTIDOTE_SNAKE_SCALE_CHESTPLATE.get(), BURST_COOLDOWN_TICKS);
         poisonBurst(level, player);
     }
 
     private static void poisonBurst(ServerLevel level, Player player) {
         // Only a visual "explosion": green cloud, a soft boom and a push. It does not break blocks or deal damage
         level.sendParticles(ColorParticleOption.create(ParticleTypes.ENTITY_EFFECT, BURST_COLOR),
-                player.getX(), player.getY() + 1.0, player.getZ(), 80, BURST_RADIUS / 2, 0.6, BURST_RADIUS / 2, 0.0);
+                player.getX(), player.getY() + 1.0, player.getZ(), 140, BURST_RADIUS / 2, 0.6, BURST_RADIUS / 2, 0.0);
         level.sendParticles(ParticleTypes.EXPLOSION, player.getX(), player.getY() + 1.0, player.getZ(), 1, 0, 0, 0, 0);
         level.playSound(null, player.blockPosition(), SoundEvents.GENERIC_EXPLODE.value(), SoundSource.PLAYERS, 0.6F, 1.6F);
 
@@ -108,10 +116,47 @@ public class SnakeScaleArmorEvents {
         return entity.distanceToSqr(player) <= BURST_RADIUS * BURST_RADIUS;
     }
 
-    /** True when the entity wears the snake scale chestplate, leggings and boots. */
+    // Upgraded set (the 3 pieces improved with antidote): the same protection as the antidote potion.
+    // Snake venom and vanilla poison cannot be applied...
+    @SubscribeEvent
+    public static void onEffectApplicable(MobEffectEvent.Applicable event) {
+        if (hasUpgradedSet(event.getEntity()) && isAntidoteBlocked(event.getEffectInstance().getEffect())) {
+            event.setResult(MobEffectEvent.Applicable.Result.DO_NOT_APPLY);
+        }
+    }
+
+    // ...and if the player already had them when putting the last piece on, they are cured
+    @SubscribeEvent
+    public static void onUpgradedTick(PlayerTickEvent.Post event) {
+        Player player = event.getEntity();
+        if (!player.level().isClientSide() && hasUpgradedSet(player)) {
+            player.removeEffect(ModEffects.SNAKE_VENOM);
+            player.removeEffect(MobEffects.POISON);
+        }
+    }
+
+    private static boolean isAntidoteBlocked(Holder<MobEffect> effect) {
+        return effect.is(ModEffects.SNAKE_VENOM.getKey()) || effect.is(MobEffects.POISON);
+    }
+
+    /** True when the entity wears the snake scale chestplate, leggings and boots (normal or upgraded). */
     public static boolean hasFullSet(LivingEntity entity) {
-        return entity.getItemBySlot(EquipmentSlot.CHEST).is(ModItems.SNAKE_SCALE_CHESTPLATE.get())
-                && entity.getItemBySlot(EquipmentSlot.LEGS).is(ModItems.SNAKE_SCALE_LEGGINGS.get())
-                && entity.getItemBySlot(EquipmentSlot.FEET).is(ModItems.SNAKE_SCALE_BOOTS.get());
+        return piece(entity, EquipmentSlot.CHEST) != null && piece(entity, EquipmentSlot.LEGS) != null
+                && piece(entity, EquipmentSlot.FEET) != null;
+    }
+
+    /** True when the 3 pieces are worn and all of them are upgraded with antidote. */
+    public static boolean hasUpgradedSet(LivingEntity entity) {
+        for (EquipmentSlot slot : new EquipmentSlot[]{EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET}) {
+            SnakeScaleArmorItem piece = piece(entity, slot);
+            if (piece == null || !piece.isUpgraded()) return false;
+        }
+        return true;
+    }
+
+    // The snake scale piece worn in that slot, or null if there is none (or it belongs to another slot)
+    private static SnakeScaleArmorItem piece(LivingEntity entity, EquipmentSlot slot) {
+        return entity.getItemBySlot(slot).getItem() instanceof SnakeScaleArmorItem armor
+                && armor.getEquipmentSlot() == slot ? armor : null;
     }
 }

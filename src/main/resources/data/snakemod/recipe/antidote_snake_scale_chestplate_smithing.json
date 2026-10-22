@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": [],
+  "base": {
+    "item": "snakemod:snake_scale_chestplate"
+  },
+  "addition": {
+    "type": "neoforge:components",
+    "items": "minecraft:potion",
+    "components": {
+      "minecraft:potion_contents": {
+        "potion": "snakemod:antidote"
+      }
+    }
+  },
+  "result": {
+    "id": "snakemod:antidote_snake_scale_chestplate",
+    "count": 1
+  }
+}

@@ -8,6 +8,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SmithingTemplateItem;
 
 /**
@@ -25,6 +26,7 @@ public final class SnakeUpgradeTemplate {
     }
 
     public static SmithingTemplateItem create() {
+        // Mythic reward of the arena: the name is shown in gold
         return new SmithingTemplateItem(
                 text("applies_to").withStyle(ChatFormatting.BLUE),
                 text("ingredients").withStyle(ChatFormatting.BLUE),
@@ -32,7 +34,12 @@ public final class SnakeUpgradeTemplate {
                 text("base_slot_description"),
                 text("additions_slot_description"),
                 BASE_SLOT_ICONS,
-                List.of()); // no vanilla outline fits a scale block, so the slot stays empty
+                List.of()) { // no vanilla outline fits a scale, so the slot stays empty
+            @Override
+            public Component getName(ItemStack stack) {
+                return super.getName(stack).copy().withStyle(ChatFormatting.GOLD);
+            }
+        };
     }
 
     private static MutableComponent text(String key) {

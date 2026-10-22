@@ -34,5 +34,9 @@
   "item.snakemod.smithing_template.snake_upgrade.additions_slot_description": "Add Snake Scale",
   "item.snakemod.snake_scale_chestplate": "Snake Scale Chestplate",
   "item.snakemod.snake_scale_leggings": "Snake Scale Leggings",
-  "item.snakemod.snake_scale_boots": "Snake Scale Boots"
+  "item.snakemod.snake_scale_boots": "Snake Scale Boots",
+  "item.snakemod.antidote_snake_scale_chestplate": "Snake Scale Chestplate",
+  "item.snakemod.antidote_snake_scale_leggings": "Snake Scale Leggings",
+  "item.snakemod.antidote_snake_scale_boots": "Snake Scale Boots",
+  "tooltip.snakemod.antidote_upgrade": "✦ Antidote upgrade ✦"
 }

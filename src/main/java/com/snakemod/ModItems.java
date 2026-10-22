@@ -1,5 +1,7 @@
 package com.snakemod;
 
+import com.snakemod.item.MythicItem;
+import com.snakemod.item.SnakeScaleArmorItem;
 import com.snakemod.item.SnakeSpearItem;
 import com.snakemod.item.SnakeUpgradeTemplate;
 
@@ -18,7 +20,8 @@ public class ModItems {
     public static final DeferredItem<Item> SNAKE_SCALE = ITEMS.registerSimpleItem("snake_scale");
     public static final DeferredItem<Item> SNAKE_FANG = ITEMS.registerSimpleItem("snake_fang");
     public static final DeferredItem<Item> SNAKE_EYE = ITEMS.registerSimpleItem("snake_eye");
-    public static final DeferredItem<Item> GOLDEN_SNAKE_EYE = ITEMS.registerSimpleItem("golden_snake_eye");
+    // Recompensa mítica de la arena: nombre en dorado
+    public static final DeferredItem<MythicItem> GOLDEN_SNAKE_EYE = ITEMS.registerItem("golden_snake_eye", MythicItem::new);
     // Provisional egg: the pet hatching logic comes in a later phase
     public static final DeferredItem<Item> SNAKE_EGG = ITEMS.registerSimpleItem("snake_egg");
 
@@ -34,13 +37,18 @@ public class ModItems {
     public static final DeferredItem<SmithingTemplateItem> SNAKE_UPGRADE_TEMPLATE = ITEMS.register(
             "snake_upgrade_template", SnakeUpgradeTemplate::create);
 
-    // Armadura de escamas: plantilla + pieza de netherite + bloque de escamas en la mesa de herrería
-    public static final DeferredItem<ArmorItem> SNAKE_SCALE_CHESTPLATE = registerArmor("snake_scale_chestplate", ArmorItem.Type.CHESTPLATE);
-    public static final DeferredItem<ArmorItem> SNAKE_SCALE_LEGGINGS = registerArmor("snake_scale_leggings", ArmorItem.Type.LEGGINGS);
-    public static final DeferredItem<ArmorItem> SNAKE_SCALE_BOOTS = registerArmor("snake_scale_boots", ArmorItem.Type.BOOTS);
+    // Armadura de escamas: plantilla + pieza de netherite + escama en la mesa de herrería
+    public static final DeferredItem<SnakeScaleArmorItem> SNAKE_SCALE_CHESTPLATE = registerArmor("snake_scale_chestplate", ArmorItem.Type.CHESTPLATE, false);
+    public static final DeferredItem<SnakeScaleArmorItem> SNAKE_SCALE_LEGGINGS = registerArmor("snake_scale_leggings", ArmorItem.Type.LEGGINGS, false);
+    public static final DeferredItem<SnakeScaleArmorItem> SNAKE_SCALE_BOOTS = registerArmor("snake_scale_boots", ArmorItem.Type.BOOTS, false);
 
-    private static DeferredItem<ArmorItem> registerArmor(String name, ArmorItem.Type type) {
-        return ITEMS.register(name, () -> new ArmorItem(ModArmorMaterials.SNAKE_SCALE, type, new Item.Properties()
+    // Las mismas piezas mejoradas con antídoto: pieza + poción de antídoto en la mesa de herrería
+    public static final DeferredItem<SnakeScaleArmorItem> ANTIDOTE_SNAKE_SCALE_CHESTPLATE = registerArmor("antidote_snake_scale_chestplate", ArmorItem.Type.CHESTPLATE, true);
+    public static final DeferredItem<SnakeScaleArmorItem> ANTIDOTE_SNAKE_SCALE_LEGGINGS = registerArmor("antidote_snake_scale_leggings", ArmorItem.Type.LEGGINGS, true);
+    public static final DeferredItem<SnakeScaleArmorItem> ANTIDOTE_SNAKE_SCALE_BOOTS = registerArmor("antidote_snake_scale_boots", ArmorItem.Type.BOOTS, true);
+
+    private static DeferredItem<SnakeScaleArmorItem> registerArmor(String name, ArmorItem.Type type, boolean upgraded) {
+        return ITEMS.register(name, () -> new SnakeScaleArmorItem(type, upgraded, new Item.Properties()
                 .durability(type.getDurability(ModArmorMaterials.DURABILITY_FACTOR))
                 .fireResistant())); // like netherite, it does not burn in lava
     }

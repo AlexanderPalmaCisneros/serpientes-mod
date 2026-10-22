@@ -34,5 +34,9 @@
   "item.snakemod.smithing_template.snake_upgrade.additions_slot_description": "Coloca una escama de serpiente",
   "item.snakemod.snake_scale_chestplate": "Peto de escamas de serpiente",
   "item.snakemod.snake_scale_leggings": "Pantalones de escamas de serpiente",
-  "item.snakemod.snake_scale_boots": "Botas de escamas de serpiente"
+  "item.snakemod.snake_scale_boots": "Botas de escamas de serpiente",
+  "item.snakemod.antidote_snake_scale_chestplate": "Peto de escamas de serpiente",
+  "item.snakemod.antidote_snake_scale_leggings": "Pantalones de escamas de serpiente",
+  "item.snakemod.antidote_snake_scale_boots": "Botas de escamas de serpiente",
+  "tooltip.snakemod.antidote_upgrade": "✦ Mejorado con antídoto ✦"
 }

@@ -34,6 +34,9 @@ public class ModCreativeTabs {
                         output.accept(ModItems.SNAKE_SCALE_CHESTPLATE.get());
                         output.accept(ModItems.SNAKE_SCALE_LEGGINGS.get());
                         output.accept(ModItems.SNAKE_SCALE_BOOTS.get());
+                        output.accept(ModItems.ANTIDOTE_SNAKE_SCALE_CHESTPLATE.get());
+                        output.accept(ModItems.ANTIDOTE_SNAKE_SCALE_LEGGINGS.get());
+                        output.accept(ModItems.ANTIDOTE_SNAKE_SCALE_BOOTS.get());
                         output.accept(ModBlocks.SNAKE_SCALE_BLOCK_ITEM.get());
                         output.accept(ModBlocks.SNAKE_SCALE_CARPET_ITEM.get());
                         output.accept(ModBlocks.SNAKE_SCALE_STAIRS_ITEM.get());

@@ -204,7 +204,7 @@ Hibernación es un estado aparte que anula todos los demás excepto el temporiza
 - Requiere las **tres piezas**. El casco no participa.
 - Se activa cuando la vida está **por debajo de 3.5 corazones**. **Decidido:** es un umbral fijo (7 puntos de vida), no una proporción de la vida máxima. Solo cuenta la vida roja, no los corazones dorados de absorción.
 - Efectos: **velocidad y fuerza**. **Decidido:** es el mismo efecto `reptilian_blessing` de la poción de bendición reptiliana.
-- Al activarse, una **pequeña explosión** envenena a los mobs cercanos (no afecta a jugadores). **Cooldown: 1 minuto y medio.**
+- Al activarse, una **pequeña explosión** envenena a los mobs cercanos (no afecta a jugadores). **Cooldown: 1 minuto** (antes 1 minuto y medio, lo cambió el autor). Radio actual: 6 bloques [A AJUSTAR].
 - **Explosión (decidido):** solo visual (nube verde, sonido y empuje), no rompe bloques ni hace daño directo; solo aplica el veneno de serpiente. Afecta a todos los mobs (también pacíficos) **menos jugadores y las mascotas del portador**. Lo de los jugadores podría cambiarse más adelante (constante `AFFECTS_PLAYERS` en `SnakeScaleArmorEvents`). El cooldown se ve como recarga en el ícono del peto.
 - El efecto continúa mientras sigas por debajo de 3.5 corazones. Al subir por encima, dura **3 segundos más**.
 - Valores (potencia, radio, duración del veneno): [A AJUSTAR]. Si resulta muy fuerte, acortar el efecto o quitar la fuerza.
@@ -222,10 +222,9 @@ Hibernación es un estado aparte que anula todos los demás excepto el temporiza
 
 - **Antídoto:** se craftea con colmillos.
 - **Plantilla de mejora:** botín de la arena (30%). Se usa al fabricar cada pieza (6.1).
-- **Mejora (decidido):** pieza de armadura de escamas + antídoto. La plantilla ya se gasta al fabricar la pieza (ver 6.1), así que aquí no hace falta. Estación exacta: **[A DEFINIR]** en la fase 5.
+- **Mejora (decidido):** en la **mesa de herrería**: pieza de armadura de escamas (ranura del medio) + **poción de antídoto** (ranura derecha), con la ranura de plantilla vacía. La plantilla ya se gasta al fabricar la pieza (ver 6.1). La pieza conserva encantamientos y desgaste. La pieza mejorada es un ítem propio (marca de la mejora) y lleva en la descripción una línea verde destacada "Mejorado con antídoto".
 - Se necesita **una mejora por pieza** (peto, pantalón y botas).
-- Con el **set completo mejorado**: inmunidad al **veneno** y al **wither**.
-- Balance: considerar wither reducido en vez de inmune [A AJUSTAR].
+- Con el **set completo mejorado** (decidido): la **misma protección que la poción de antídoto**: cura e inmuniza al veneno de serpiente y al Veneno de vanilla. **No** protege del wither (el autor lo descartó).
 - Efectos extra posibles: resistencia al fuego en el Nether.
 
 ---
@@ -304,3 +303,7 @@ Estados activos:
 - Usar Git desde el inicio.
 - Implementar la mascota al final, empezando por una máquina de estados simple con la prioridad de la sección 5.8.
 - Modelos, texturas y animaciones: hechos a mano en Blockbench.
+
+## Nombres de objetos míticos (decidido)
+
+Las recompensas especiales muestran su nombre en **dorado**: ojo de serpiente dorado, plantilla de mejora de serpiente y las piezas de la armadura de escamas (normales y mejoradas).

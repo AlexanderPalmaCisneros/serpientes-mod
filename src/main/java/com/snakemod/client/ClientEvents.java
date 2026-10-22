@@ -46,6 +46,6 @@ public class ClientEvents {
                 }
                 return model;
             }
-        }, ModItems.SNAKE_SCALE_CHESTPLATE.get());
+        }, ModItems.SNAKE_SCALE_CHESTPLATE.get(), ModItems.ANTIDOTE_SNAKE_SCALE_CHESTPLATE.get());
     }
 }
