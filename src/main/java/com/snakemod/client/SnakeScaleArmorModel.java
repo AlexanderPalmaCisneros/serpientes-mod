@@ -15,10 +15,11 @@ import net.minecraft.resources.ResourceLocation;
 /**
  * Chestplate model: the normal armor shape plus 3D relief.
  * - Scaled shoulder pads with three fangs hanging from the outer edge.
- * - A netherite collar, a column of overlapping scales down the chest and two scales from the shoulders.
+ * - A netherite collar and a column of belly scutes.
  * - Small dorsal spines down the back.
  * The extra pieces use the top half of snake_scale_layer_1.png (free, because the set has no helmet):
- * pad 0,0; collar 26,0; chest scales 0,10 / 8,10 / 26,9; spines 36,9. Fangs use x 56-60, y 16-23.
+ * pad 0,0; collar 26,0; scutes 14,13 / 14,10 / 42,12; spines 36,9.
+ * Fangs use x 56-60, y 16-23.
  */
 public final class SnakeScaleArmorModel {
     public static final ModelLayerLocation LAYER =
@@ -37,15 +38,13 @@ public final class SnakeScaleArmorModel {
     };
     private static final float TIP_BEND = 0.6F; // the tip curves back toward the arm, like a hook
 
-    // Chest scales from the collar down: {width, top y}. Each is 3 tall and the next starts 2 lower,
-    // so they overlap like real scales
-    private static final int[][] CHEST_SCALES = {
+    // Chest: a column of belly scutes (the wide plates on a snake's belly) from the collar down: {width, top y}.
+    // Each is 2 tall and the next starts 1.8 lower, so the upper one overlaps the lower one like real scales
+    private static final int[][] CHEST_SCUTES = {
             {4, 0}, {4, 2}, {4, 4}, {3, 6}, {3, 8}, {2, 10},
     };
-    // Texture spot of each scale width (rounded scale drawn with transparent bottom corners)
-    private static final int[][] SCALE_TEX = {{8, 10}, {0, 10}, {26, 9}}; // width 2, 3, 4
-    // Upper chest: scales coming down from each shoulder toward the center column {x, y, tilt}
-    private static final float[] MANTLE = {2.6F, 0.3F, 0.45F};
+    // Texture spot of each scute width (rounded bottom corners are transparent pixels): width 2, 3, 4
+    private static final int[][] SCUTE_TEX = {{14, 13}, {14, 10}, {42, 12}};
     private static final float[] SPINE_Y = {2.0F, 5.0F, 8.0F};
 
     private SnakeScaleArmorModel() {
@@ -94,20 +93,15 @@ public final class SnakeScaleArmorModel {
                 CubeListBuilder.create().texOffs(26, 0).addBox(-4.5F, -1.6F, -3.5F, 9.0F, 2.0F, 7.0F),
                 PartPose.ZERO);
 
-        // Column of overlapping scales down the chest, each with its lower edge lifted
-        for (int i = 0; i < CHEST_SCALES.length; i++) {
-            int w = CHEST_SCALES[i][0], y = CHEST_SCALES[i][1];
-            int[] tex = SCALE_TEX[w - 2];
-            body.addOrReplaceChild("chest_scale_" + i,
-                    CubeListBuilder.create().texOffs(tex[0], tex[1]).addBox(-w / 2.0F, 0.0F, -1.0F, w, 3.0F, 1.0F),
-                    PartPose.offsetAndRotation(0.0F, y, -2.7F - i * 0.05F, -0.2F, 0.0F, 0.0F));
-        }
-
-        // Two scales on the upper chest, tilted toward the column, like a mantle coming from the shoulders
-        for (int s = -1; s <= 1; s += 2) {
-            body.addOrReplaceChild("mantle_" + (s < 0 ? "r" : "l"),
-                    CubeListBuilder.create().texOffs(0, 10).addBox(-1.5F, 0.0F, -1.0F, 3.0F, 3.0F, 1.0F),
-                    PartPose.offsetAndRotation(MANTLE[0] * s, MANTLE[1], -2.6F, -0.2F, 0.0F, MANTLE[2] * s));
+        // Column of belly scutes, each with its lower edge lifted a little
+        for (int i = 0; i < CHEST_SCUTES.length; i++) {
+            int w = CHEST_SCUTES[i][0], y = CHEST_SCUTES[i][1];
+            int[] tex = SCUTE_TEX[w - 2];
+            // The upper scutes sit a hair further out, so they cover the top of the next one
+            float z = -3.0F - (CHEST_SCUTES.length - i) * 0.04F;
+            body.addOrReplaceChild("chest_scute_" + i,
+                    CubeListBuilder.create().texOffs(tex[0], tex[1]).addBox(-w / 2.0F, 0.0F, 0.0F, w, 2.0F, 1.0F),
+                    PartPose.offsetAndRotation(0.0F, y * 0.9F, z, -0.15F, 0.0F, 0.0F));
         }
 
         // Dorsal spines down the back, leaning down like scales
